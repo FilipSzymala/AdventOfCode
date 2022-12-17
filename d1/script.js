@@ -3,9 +3,9 @@ const fs = require('fs')
 fs.readFile('data.txt', 'utf-8', (err, data) => {
     if (err) throw err;
 
-    allElves = data.split("\n")
-    elvesCals = []
-    x = 0
+    const allElves = data.split("\n")
+    let elvesCals = []
+    let x = 0
 
     allElves.map((val => {
         if (Number(val) == 0) {

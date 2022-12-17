@@ -28,4 +28,3 @@ fs.readFile('data.txt', 'utf-8', (err, data) => {
     threeHighestCalories[2] = Math.max(...elvesCals.filter(val => val != threeHighestCalories[0] && val != threeHighestCalories[1]));
     console.log(`d2: ${threeHighestCalories[0] + threeHighestCalories[1] + threeHighestCalories[2]}`);
 })
-

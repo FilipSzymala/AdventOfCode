@@ -1,4 +1,4 @@
-// part 1
+// part 2
 const fs = require('fs')
 
 fs.readFile('data.txt', 'utf-8', (err, data) => {
@@ -15,19 +15,16 @@ fs.readFile('data.txt', 'utf-8', (err, data) => {
         priorities[String.fromCharCode(i)] = (i-38)
     }
 
-    let valLen, firstHalf, secondHalf, matchingItem
-    rucksacks.map(val => {
-        valLen = val.trim().length
-        firstHalf = val.substring(0, valLen/2)
-        secondHalf = val.substring(valLen/2)
-
-        for (item of firstHalf) {
-            if (secondHalf.includes(item)) {
+    for (let i = 0; i < rucksacks.length; i += 3) {
+        let matchingItem
+        for (item of rucksacks[i]) {
+            if (rucksacks[i+1].includes(item) && rucksacks[i+2].includes(item)) {
                 matchingItem = item
+                break
             }
         }
         sumOfPriorities += priorities[matchingItem]
-    })
-
+    }
+    
     console.log(sumOfPriorities);
 })
